@@ -3,23 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client';
 import {
     createBrowserRouter,
     RouterProvider,
     useParams,
 } from 'react-router-dom';
-import { ekipe, EkipaProps } from './Components/SeznamEkip';
-import {Igralec} from "./Components/Igralec";
+import {ekipeSeznam, EkipaProps} from './Components/SeznamEkip';
+import {Igralec, IgralecProps} from "./Components/Igralec";
 import {Info} from "./Components/Info";
 import {Opozorilo} from "./Components/Opozorilo";
+import {DevSupport} from "@react-buddy/ide-toolbox";
+import {ComponentPreviews, useInitial} from "./dev";
 
-const Ekipa = () => {
-    const { ekipaId } = useParams();
+export const Ekipa = () => {
+    const {ekipaId} = useParams();
 
     //@ts-ignore
-    const ekipa: EkipaProps = ekipe.find((e) => e.id === parseInt(ekipaId));
+    const ekipa: EkipaProps = ekipeSeznam.find((e) => e.id === parseInt(ekipaId));
 
     return (
         <div>
@@ -49,11 +51,11 @@ const Ekipa = () => {
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <App/>,
         children: [
             {
                 path: '/ekipa/:ekipaId',
-                element: <Ekipa />,
+                element: <Ekipa/>,
             },
         ],
     },
@@ -61,11 +63,15 @@ const router = createBrowserRouter([
 
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <DevSupport ComponentPreviews={ComponentPreviews}
+                    useInitialHook={useInitial}
+        >
+            <RouterProvider router={router}/>
+        </DevSupport>
     </StrictMode>
 );
 

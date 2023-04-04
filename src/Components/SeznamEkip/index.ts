@@ -10,7 +10,7 @@ export interface EkipaProps {
     igralci: IgralecProps[];
 }
 
-const igralci: IgralecProps[] = ([
+export const igralci: IgralecProps[] = ([
     {
         ime: "Kepa Arrizabalaga",
         starost: 24,
@@ -34,55 +34,9 @@ const igralci: IgralecProps[] = ([
     },
 ]);
 
-const igralci2: IgralecProps[] = ([
-    {
-        ime: "Kepa Arrizabalaga222",
-        starost: 24,
-        stDresa: 10,
-        pozicija: "Napadalec",
-        poskodovan: false,
-    },
-    {
-        ime: "Thiago Silva222",
-        starost: 28,
-        stDresa: 5,
-        pozicija: "Vezist",
-        poskodovan: true,
-    },
-    {
-        ime: "Reece James222",
-        starost: 30,
-        stDresa: 2,
-        pozicija: "Branilec",
-        poskodovan: false,
-    },
-]);
 
-const igralci3: IgralecProps[] = ([
-    {
-        ime: "Kepa Arrizabalaga333",
-        starost: 24,
-        stDresa: 10,
-        pozicija: "Napadalec",
-        poskodovan: false,
-    },
-    {
-        ime: "Thiago Silva333",
-        starost: 28,
-        stDresa: 5,
-        pozicija: "Vezist",
-        poskodovan: true,
-    },
-    {
-        ime: "Reece James333",
-        starost: 30,
-        stDresa: 2,
-        pozicija: "Branilec",
-        poskodovan: false,
-    },
-]);
 
-export const ekipe: EkipaProps[] = [
+export const ekipeSeznam: EkipaProps[] = [
     {
         id: 1,
         ime: "EKIPA1",
@@ -97,7 +51,7 @@ export const ekipe: EkipaProps[] = [
         letoUstanovitve: 2222,
         direktor: "MITKO DVOJKA",
         trener: "BORO DVOJKA",
-        igralci: igralci2,
+        igralci: igralci,
     },
     {
         id: 3,
@@ -105,7 +59,7 @@ export const ekipe: EkipaProps[] = [
         letoUstanovitve: 3333,
         direktor: "MITKO TROJKA",
         trener: "BORO TROJKA",
-        igralci: igralci3,
+        igralci: igralci,
     },
 ];
 
